@@ -77,10 +77,10 @@ class EmotionDetector:
             )
 
             self.available = True
-            print("✓ Emotion detection loaded")
+            print("Emotion detection loaded")
 
         except Exception as e:
-            print(f"⚠️  Emotion detection disabled: {e}")
+            print(f"Emotion detection disabled: {e}")
 
     def predict(self, frame_gray):
         """Returns (emotion_str, x, y, w, h) or (None, 0,0,0,0) if no face."""
@@ -210,7 +210,6 @@ class ISLDetector:
     def _draw_hud(self, frame, sign, conf, no_hand_since):
         h, w = frame.shape[:2]
 
-        # Top bar emotion
         if self.emotion_det.available:
             cv2.rectangle(frame, (0, 0), (w, 36), (20, 20, 20), -1)
             cv2.line(frame, (0, 36), (w, 36), (50, 50, 50), 1)
